@@ -1,0 +1,11 @@
+.p-button {
+  &.p-button-text {
+    &.p-button-plain {
+      color: map-get($colors, "white");
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}

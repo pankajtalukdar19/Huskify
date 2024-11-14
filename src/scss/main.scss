@@ -1,0 +1,40 @@
+// Abstracts
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/utilities";
+
+// Base styles
+@import "base/reset";
+@import "base/typography";
+
+// Components
+@import "components/index";
+
+// Pages
+@import "pages/auth";
+@import "pages/dashboard";
+@import "pages/profile";
+
+// Themes
+@import "themes/light";
+@import "themes/dark";
+
+// Vendors (PrimeReact overrides)
+@import "vendors/primereact";
+
+// Global styles
+:root {
+  font-family: $font-family-base;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--surface-ground);
+}
+
+.p-component {
+  font-family: $font-family-base;
+}

@@ -1,0 +1,19 @@
+// Function to get color from map
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+// Function to get spacing
+@function spacing($key) {
+  @return map-get($spacers, $key);
+}
+
+// Function to get font-size
+@function font-size($key) {
+  @return map-get($font-sizes, $key);
+}
+
+// Function to get shadow
+@function shadow($key) {
+  @return map-get($shadows, $key);
+}

@@ -1,0 +1,43 @@
+@use "sass:color";
+
+:root[data-theme="dark"] {
+  --surface-ground: #{color.adjust(
+      map-get($surface, "ground"),
+      $lightness: -85%
+    )};
+  --surface-section: #{color.adjust(
+      map-get($surface, "section"),
+      $lightness: -85%
+    )};
+  --surface-card: #{color.adjust(map-get($surface, "card"), $lightness: -85%)};
+  --surface-overlay: #{color.adjust(
+      map-get($surface, "overlay"),
+      $lightness: -85%
+    )};
+  --surface-border: #{color.adjust(
+      map-get($surface, "border"),
+      $lightness: -60%
+    )};
+
+  --text-color: #{color.adjust(map-get($text, "primary"), $lightness: 85%)};
+  --text-color-secondary: #{color.adjust(
+      map-get($text, "secondary"),
+      $lightness: 60%
+    )};
+
+  --primary-color: #{color.adjust(map-get($colors, "primary"), $lightness: 10%)};
+  --primary-color-text: #{map-get($colors, "white")};
+
+  // Additional dark theme colors
+  --surface-hover: #{color.adjust(map-get($surface, "card"), $lightness: -80%)};
+  --surface-hover-text: #{color.adjust(
+      map-get($text, "primary"),
+      $lightness: 90%
+    )};
+
+  // Status colors
+  --success-color: #{color.adjust(map-get($colors, "success"), $lightness: 10%)};
+  --warning-color: #{color.adjust(map-get($colors, "warning"), $lightness: 10%)};
+  --danger-color: #{color.adjust(map-get($colors, "danger"), $lightness: 10%)};
+  --info-color: #{color.adjust(map-get($colors, "info"), $lightness: 10%)};
+}

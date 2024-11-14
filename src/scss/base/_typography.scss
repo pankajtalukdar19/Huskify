@@ -1,0 +1,37 @@
+body {
+  font-family: $font-family-base;
+  font-size: map-get($font-sizes, "base");
+  line-height: 1.5;
+  color: map-get($text, "primary");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-heading;
+  font-weight: map-get($font-weights, "bold");
+  line-height: 1.2;
+  margin-bottom: spacing("4");
+}
+
+h1 {
+  font-size: map-get($font-sizes, "4xl");
+}
+h2 {
+  font-size: map-get($font-sizes, "3xl");
+}
+h3 {
+  font-size: map-get($font-sizes, "2xl");
+}
+h4 {
+  font-size: map-get($font-sizes, "xl");
+}
+h5 {
+  font-size: map-get($font-sizes, "lg");
+}
+h6 {
+  font-size: map-get($font-sizes, "base");
+}

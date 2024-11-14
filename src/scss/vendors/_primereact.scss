@@ -1,0 +1,31 @@
+// Override PrimeReact component styles
+.p-component {
+  font-family: $font-family-base;
+}
+
+.p-inputtext {
+  &:enabled:focus {
+    box-shadow: 0 0 0 2px rgba(map-get($colors, "primary"), 0.2);
+    border-color: map-get($colors, "primary");
+  }
+}
+
+.p-button {
+  font-weight: map-get($font-weights, "medium");
+}
+
+.p-menu {
+  .p-menuitem-link {
+    &:not(.p-disabled):hover {
+      background: rgba(map-get($colors, "primary"), 0.04);
+    }
+  }
+}
+
+.p-avatar {
+  &.p-avatar-xl {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+  }
+}

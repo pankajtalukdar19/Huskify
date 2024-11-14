@@ -1,0 +1,60 @@
+/* Custom Variables */
+:root {
+    --surface-ground: #f8f9fa;
+    --surface-section: #ffffff;
+    --surface-card: #ffffff;
+    --surface-overlay: #ffffff;
+    --surface-border: #dee2e6;
+    --text-color: #495057;
+    --text-color-secondary: #6c757d;
+    --primary-color: #3B82F6;
+    --primary-color-text: #ffffff;
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--surface-ground);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout Classes */
+.layout-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-topbar {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.layout-main {
+    flex: 1;
+    padding: 2rem;
+}
+
+.layout-card {
+    background: var(--surface-card);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2),
+                0 1px 1px 0 rgba(0,0,0,.14),
+                0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+/* Responsive Utilities */
+@media screen and (max-width: 576px) {
+    .layout-main {
+        padding: 1rem;
+    }
+}

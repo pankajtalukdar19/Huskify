@@ -1,0 +1,10 @@
+.p-card {
+  background: map-get($surface, "card");
+  border-radius: map-get($border-radius, "lg");
+  box-shadow: shadow("md");
+
+  .p-card-title {
+    font-size: map-get($font-sizes, "2xl");
+    font-weight: map-get($font-weights, "bold");
+  }
+}

@@ -1,0 +1,36 @@
+// Media Queries
+@mixin breakpoint($point) {
+  @if map-has-key($breakpoints, $point) {
+    @media (min-width: map-get($breakpoints, $point)) {
+      @content;
+    }
+  }
+}
+
+// Flexbox
+@mixin flex(
+  $direction: row,
+  $justify: flex-start,
+  $align: stretch,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// Grid
+@mixin grid($columns: 1, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Typography
+@mixin text($size: "base", $weight: "regular", $color: "primary") {
+  font-size: map-get($font-sizes, $size);
+  font-weight: map-get($font-weights, $weight);
+  color: map-get($text, $color);
+}

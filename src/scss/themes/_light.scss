@@ -1,0 +1,26 @@
+@use "sass:color";
+
+:root {
+  --surface-ground: #{map-get($surface, "ground")};
+  --surface-section: #{map-get($surface, "section")};
+  --surface-card: #{map-get($surface, "card")};
+  --surface-overlay: #{map-get($surface, "overlay")};
+  --surface-border: #{map-get($surface, "border")};
+
+  --text-color: #{map-get($text, "primary")};
+  --text-color-secondary: #{map-get($text, "secondary")};
+
+  --primary-color: #{map-get($colors, "primary")};
+  --primary-color-text: #{map-get($colors, "white")};
+
+  --surface-hover: #{color.adjust(map-get($surface, "card"), $lightness: -5%)};
+  --surface-hover-text: #{map-get($text, "primary")};
+
+  --success-color: #{map-get($colors, "success")};
+  --warning-color: #{map-get($colors, "warning")};
+  --danger-color: #{map-get($colors, "danger")};
+  --info-color: #{map-get($colors, "info")};
+
+  --primary-color-rgb: #{red(map-get($colors, "primary"))},
+    #{green(map-get($colors, "primary"))}, #{blue(map-get($colors, "primary"))};
+}

@@ -1,0 +1,21 @@
+.field {
+  margin-bottom: spacing("4");
+
+  label {
+    display: block;
+    margin-bottom: spacing("2");
+    font-weight: map-get($font-weights, "medium");
+  }
+
+  .p-inputtext {
+    width: 100%;
+  }
+}
+
+.p-inputgroup {
+  .p-inputgroup-addon {
+    background: map-get($surface, "ground");
+    border-color: map-get($surface, "border");
+    color: map-get($text, "secondary");
+  }
+}

@@ -1,0 +1,13 @@
+.dashboard-page {
+  .stats-grid {
+    @include grid(1, spacing("4"));
+
+    @include breakpoint("md") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint("lg") {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

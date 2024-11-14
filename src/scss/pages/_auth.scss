@@ -1,0 +1,6 @@
+.auth-page {
+  min-height: 100vh;
+  @include flex(column, center, center);
+  background-color: map-get($colors, "light");
+  padding: spacing("4");
+}

@@ -1,0 +1,191 @@
+.layout-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.layout-content {
+  flex: 1;
+  margin-left: 280px;
+  transition: margin-left 0.3s ease;
+
+  &.sidebar-collapsed {
+    margin-left: 80px;
+  }
+}
+
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background: var(--surface-overlay);
+  border-right: 1px solid var(--surface-border);
+  transition: all 0.3s ease;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+  &.collapsed {
+    width: 80px;
+
+    .menu-label,
+    .user-details,
+    .app-name {
+      display: none;
+    }
+
+    .menu-item {
+      padding: spacing("3");
+      justify-content: center;
+
+      .menu-tooltip {
+        position: absolute;
+        left: 100%;
+        background: var(--surface-card);
+        padding: spacing("2") spacing("3");
+        border-radius: map-get($border-radius, "md");
+        font-size: font-size("sm");
+        white-space: nowrap;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-left: spacing("2");
+      }
+
+      &:hover .menu-tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    .user-info {
+      justify-content: center;
+    }
+  }
+
+  .sidebar-header {
+    padding: spacing("4");
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    border-bottom: 1px solid var(--surface-border);
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: spacing("3");
+
+      .app-name {
+        font-size: font-size("xl");
+        font-weight: font-weight("bold");
+        color: var(--primary-color);
+      }
+    }
+
+    .sidebar-toggle {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: spacing("3") 0;
+
+    .sidebar-menu {
+      display: flex;
+      flex-direction: column;
+      gap: spacing("1");
+      padding: 0 spacing("2");
+
+      .menu-item {
+        display: flex;
+        align-items: center;
+        gap: spacing("3");
+        padding: spacing("3") spacing("4");
+        cursor: pointer;
+        border-radius: map-get($border-radius, "md");
+        transition: all 0.2s ease;
+        color: var(--text-color-secondary);
+        position: relative;
+
+        .menu-icon {
+          font-size: 1.2rem;
+          width: 24px;
+          text-align: center;
+        }
+
+        .menu-label {
+          font-weight: font-weight("medium");
+        }
+
+        &:hover {
+          background: var(--surface-hover);
+          color: var(--primary-color);
+        }
+
+        &.active {
+          background: var(--primary-color);
+          color: var(--primary-color-text);
+
+          &:hover {
+            background: var(--primary-color);
+            color: var(--primary-color-text);
+          }
+        }
+      }
+    }
+  }
+
+  .sidebar-footer {
+    padding: spacing("4");
+    border-top: 1px solid var(--surface-border);
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: spacing("3");
+      padding: spacing("2");
+      border-radius: map-get($border-radius, "md");
+      background: var(--surface-ground);
+
+      .user-details {
+        display: flex;
+        flex-direction: column;
+        gap: spacing("1");
+
+        .user-name {
+          font-weight: font-weight("medium");
+          color: var(--text-color);
+        }
+
+        .user-role {
+          font-size: font-size("sm");
+          color: var(--text-color-secondary);
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+}
+
+.layout-topbar {
+  height: 60px;
+  background: var(--surface-card);
+  border-bottom: 1px solid var(--surface-border);
+  padding: 0 spacing("4");
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.layout-main {
+  padding: spacing("4");
+  background: var(--surface-ground);
+  min-height: calc(100vh - 60px);
+}
