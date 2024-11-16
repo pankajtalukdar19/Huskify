@@ -1,13 +1,12 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectAuth } from "@/features/auth/authSlice";
+import { useAppSelector } from "@/hooks/reduxHook";
 
-interface Props { 
+interface Props {
   allowedRoles?: ("user" | "customer" | "admin")[];
 }
 
-function ProtectedRoute({  allowedRoles = [] }: Props) {
-  const { token, user } = useSelector(selectAuth);
+function ProtectedRoute({ allowedRoles = [] }: Props) {
+  const { token, user } = useAppSelector((state) => state.auth);
   const location = useLocation();
 
   if (!token) {

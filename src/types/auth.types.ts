@@ -1,13 +1,13 @@
 export interface User {
-  id: string;
+  _id: string;
   role: "user" | "customer" | "admin";
   phoneNumber: string;
   name?: string;
   avatarUrl?: string;
   email?: string;
-  points_available:number
-  points_redeemed:number
-  address:string
+  points_available: number;
+  points_redeemed: number;
+  address: string;
 }
 
 export interface LoginRequest {

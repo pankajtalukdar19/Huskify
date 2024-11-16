@@ -1,16 +1,15 @@
+import { UserPayload } from "@/types/user.types";
 import api from "./axios.config";
-import { UserPayload, UpdateParams } from "../types/user.types";
+
+interface UpdateParams {
+  id: string;
+  payload: Partial<UserPayload>;
+}
 
 export const userApi = {
-  getUsers: () => {
-    return api.get("/user");
-  },
-
-  addUsers: (payload: UserPayload) => {
-    return api.post("/user", payload);
-  },
-
-  updateUsers: ({ id, payload }: UpdateParams) => {
-    return api.put(`/user/${id}`, payload);
-  },
+  getUsers: () => api.get("/user"),
+  getUserById: (id: string) => api.get(`/user/${id}`),
+  addUsers: (payload: UserPayload) => api.post("/user", payload),
+  updateUsers: ({ id, payload }: UpdateParams) =>
+    api.put(`/user/${id}`, payload),
 };

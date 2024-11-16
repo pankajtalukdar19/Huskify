@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Message } from "primereact/message";
 import { useAuth } from "../../hooks/useAuth";
-import type { RootState } from "../../store";
+import { useAppSelector } from "@/hooks/reduxHook";
 
 function OtpVerification() {
   const [otp, setOtp] = useState("");
-  const phoneNumber = useSelector((state: RootState) => state.auth.phoneNumber);
+  const phoneNumber = useAppSelector((state) => state.auth.phoneNumber);
   const { verifyOtp, isLoading, error } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {

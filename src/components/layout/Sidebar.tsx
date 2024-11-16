@@ -1,8 +1,7 @@
-import { useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "primereact/button";
-import { selectUser } from "@/features/auth/authSlice";
 import { classNames } from "primereact/utils";
+import { useAppSelector } from "@/hooks/reduxHook";
 
 interface MenuItem {
   label: string;
@@ -54,6 +53,12 @@ const menuItems: MenuItem[] = [
     path: "/loyalty-points",
     roles: ["admin"],
   },
+  {
+    label: "My Coupons",
+    icon: "pi pi-ticket",
+    path: "/coupons",
+    roles: ["user"],
+  },
 ];
 
 interface SidebarProps {
@@ -62,7 +67,7 @@ interface SidebarProps {
 }
 
 function Sidebar({ isCollapsed, onCollapse }: SidebarProps) {
-  const user = useSelector(selectUser);
+  const user = useAppSelector((state) => state.auth.user);
   const navigate = useNavigate();
   const location = useLocation();
 

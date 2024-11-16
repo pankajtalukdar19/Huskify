@@ -15,39 +15,45 @@ import CreateVendorPage from "./pages/vendors/CreateVendorPage";
 import UserEarn from "./pages/users/UserEarn";
 import UserRedeeme from "./pages/users/UserRedeeme";
 import VendorDetails from "./pages/vendors/VendorDetails";
+import CouponsPage from "@/pages/coupons/CouponsPage";
 
 function App() {
   return (
-    <Routes> 
-
-      <Route path="/" element={ <DashboardLayout />}>
-        <Route element={<ProtectedRoute allowedRoles={["user", "customer", "admin"]} />}>
-          <Route index element={<DashboardPage />} /> 
+    <Routes>
+      <Route path="/" element={<DashboardLayout />}>
+        <Route
+          element={
+            <ProtectedRoute allowedRoles={["user", "customer", "admin"]} />
+          }
+        >
+          <Route index element={<DashboardPage />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>
 
-        <Route element={<ProtectedRoute allowedRoles={["user"]} />}> 
-          <Route  path="earn"  element={  <UserEarn />  }  />
-          <Route path="redeem" >
-            <Route index element={<UserRedeeme /> }  />
-            <Route  path=":id" element={<VendorDetails /> }  />
+        <Route element={<ProtectedRoute allowedRoles={["user"]} />}>
+          <Route path="earn" element={<UserEarn />} />
+          <Route path="transactions" element={<TransactionsPage />} />
+          <Route path="redeem">
+            <Route index element={<UserRedeeme />} />
+            <Route path=":id" element={<VendorDetails />} />
           </Route>
         </Route>
 
         <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
-          <Route path="users" element={<UsersPage />}/>
-          <Route path="users/create" element={<CreateUserPage />}/>
-          <Route path="vendors" element={<VendorsPage />}/>
-          <Route path="vendors/create" element={<CreateVendorPage />}/>
-          <Route path="loyalty-points" element={<LoyaltyPointsPage />}/>
+          <Route path="users" element={<UsersPage />} />
+          <Route path="users/create" element={<CreateUserPage />} />
+          <Route path="vendors" element={<VendorsPage />} />
+          <Route path="vendors/create" element={<CreateVendorPage />} />
+          <Route path="loyalty-points" element={<LoyaltyPointsPage />} />
         </Route>
+
+        <Route path="coupons" element={<CouponsPage />} />
       </Route>
 
-      <Route  element={ <AuthLayout />}>
-        <Route  path="login"  element={ <LoginForm />}/>
-        <Route path="verify-otp" element={  <OtpVerification />  }/>
+      <Route element={<AuthLayout />}>
+        <Route path="login" element={<LoginForm />} />
+        <Route path="verify-otp" element={<OtpVerification />} />
       </Route>
-
     </Routes>
   );
 }

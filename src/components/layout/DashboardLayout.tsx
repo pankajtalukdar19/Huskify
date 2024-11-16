@@ -1,16 +1,15 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { Button } from "primereact/button";
 import { Menu } from "primereact/menu";
 import { useRef, useState } from "react";
 import { useAuth } from "@hooks/useAuth";
-import type { RootState } from "@/store";
 import Sidebar from "./Sidebar";
 import { classNames } from "primereact/utils";
 import { Avatar } from "primereact/avatar";
+import { useAppSelector } from "@/hooks/reduxHook";
 
 function DashboardLayout() {
-  const user = useSelector((state: RootState) => state.auth.user);
+  const user = useAppSelector((state) => state.auth.user);
   const menuRef = useRef<Menu>(null);
   const { logout } = useAuth();
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);

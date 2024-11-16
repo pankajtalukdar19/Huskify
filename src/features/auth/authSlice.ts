@@ -49,6 +49,20 @@ const authSlice = createSlice({
       state.phoneNumber = null;
       localStorage.clear();
     },
+    updateUserPoints: (
+      state,
+      action: PayloadAction<{
+        points_available: number;
+        points_redeemed: number;
+      }>
+    ) => {
+      if (state.user) {
+        state.user.points_available = action.payload.points_available;
+        state.user.points_redeemed = action.payload.points_redeemed;
+        // Update localStorage
+        localStorage.setItem("user", JSON.stringify(state.user));
+      }
+    },
   },
 });
 
@@ -64,6 +78,7 @@ export const {
   setPhoneNumber,
   setToken,
   setRefreshToken,
+  updateUserPoints,
 } = authSlice.actions;
 
 export default authSlice.reducer;

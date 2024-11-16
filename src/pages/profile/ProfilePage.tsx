@@ -1,19 +1,18 @@
 import { useState, useRef } from "react";
-import { useSelector } from "react-redux";
-import { Card } from "primereact/card";
 import { Avatar } from "primereact/avatar";
 import { Button } from "primereact/button";
 import { FileUpload } from "primereact/fileupload";
 import { InputText } from "primereact/inputtext";
 import { Toast } from "primereact/toast";
 import { profileApi } from "@/api/profile.api";
-import { selectUser, updateUser } from "@/features/auth/authSlice";
+import { updateUser } from "@/features/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { User } from "@/types/auth.types";
+import { useAppSelector } from "@/hooks/reduxHook";
 
 function ProfilePage() {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
+  const user = useAppSelector((state) => state.auth.user);
   const [name, setName] = useState(user?.name || "");
   const [email, setEmail] = useState(user?.email || "");
   const [avatar, setAvatar] = useState<File | null>(null);

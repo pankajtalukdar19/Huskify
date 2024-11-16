@@ -1,16 +1,7 @@
-import { ApiResponse } from "../types/api.types";
 import api from "./axios.config";
-
-interface Transaction {
-  id: string;
-  date: string;
-  amount: number;
-  type: string;
-  status: "completed" | "pending" | "failed";
-}
+import { TransactionResponse } from "@/types/transaction.types";
 
 export const transactionApi = {
-  getTransactions: () => {
-    return api.get<ApiResponse<Transaction[]>>("/transactions");
-  },
+  getUserTransactions: (userId: string) =>
+    api.get<TransactionResponse>(`/transactions/user/${userId}`),
 };

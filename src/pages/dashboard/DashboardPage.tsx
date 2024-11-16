@@ -1,9 +1,8 @@
 import { Card } from "primereact/card";
-import { useSelector } from "react-redux";
-import type { RootState } from "@/store";
+import { useAppSelector } from "@/hooks/reduxHook";
 
 function DashboardPage() {
-  const user = useSelector((state: RootState) => state.auth.user);
+  const user = useAppSelector((state) => state.auth.user);
 
   return (
     <div className="p-4">

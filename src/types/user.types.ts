@@ -1,13 +1,22 @@
+export interface User {
+  _id: string;
+  name: string;
+  email: string;
+  phoneNumber: string;
+  role: "user" | "vendor" | "admin";
+  points_available: number;
+  points_redeemed: number;
+  address?: string;
+}
 export interface UserPayload {
-    name: string;
-    email: string;
-    phoneNumber: string;
-    points_available: number;
-    address: string;
-    role: string;
-  }
-  
+  name: string;
+  email: string;
+  phoneNumber: string;
+  role: "user" | "vendor" | "admin";
+  address?: string;
+}
+
 export interface UpdateParams {
-    id: string;
-    payload: UserPayload;
-  }
+  id: string;
+  payload: UserPayload;
+}
