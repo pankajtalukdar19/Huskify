@@ -1,18 +1,20 @@
 export interface User {
   _id: string;
-  name: string;
-  email: string;
+  role: RoleTyle;
   phoneNumber: string;
-  role: "user" | "vendor" | "admin";
+  name?: string;
+  avatarUrl?: string;
+  email?: string;
   points_available: number;
   points_redeemed: number;
-  address?: string;
+  address: string;
 }
+export type RoleTyle = "user" | "vendor" | "admin";
 export interface UserPayload {
   name: string;
   email: string;
   phoneNumber: string;
-  role: "user" | "vendor" | "admin";
+  role: RoleTyle;
   address?: string;
 }
 

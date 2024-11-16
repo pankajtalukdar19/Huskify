@@ -29,6 +29,12 @@ function DashboardLayout() {
         return "Loyalty Points";
       case "/profile":
         return "Profile Settings";
+      case "/coupons":
+        return "My Coupons";
+      case "/redeem":
+        return "Points Redeem";
+      case "/earn":
+        return "Points Earn";
       default:
         return "Dashboard";
     }

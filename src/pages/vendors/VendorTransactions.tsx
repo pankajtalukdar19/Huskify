@@ -6,7 +6,7 @@ import { transactionApi } from "@/api/transaction.api";
 import { Transaction } from "@/types/transaction.types";
 import { useAppSelector } from "@/hooks/reduxHook";
 
-const TransactionsPage = () => {
+const VendorTransactions = () => {
   const user = useAppSelector((state) => state.auth.user);
   const { data: transactionsData, isLoading } = useFetch(() =>
     transactionApi.getUserTransactions(user?._id || "")
@@ -69,4 +69,4 @@ const TransactionsPage = () => {
   );
 };
 
-export default TransactionsPage;
+export default VendorTransactions;

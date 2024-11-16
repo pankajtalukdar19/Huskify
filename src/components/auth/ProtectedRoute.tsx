@@ -1,8 +1,9 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAppSelector } from "@/hooks/reduxHook";
+import { RoleTyle } from "@/types/user.types";
 
 interface Props {
-  allowedRoles?: ("user" | "customer" | "admin")[];
+  allowedRoles?: RoleTyle[];
 }
 
 function ProtectedRoute({ allowedRoles = [] }: Props) {

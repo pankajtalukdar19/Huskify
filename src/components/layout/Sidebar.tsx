@@ -2,12 +2,13 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "primereact/button";
 import { classNames } from "primereact/utils";
 import { useAppSelector } from "@/hooks/reduxHook";
+import { RoleTyle } from "@/types/user.types";
 
 interface MenuItem {
   label: string;
   icon: string;
   path: string;
-  roles: string[];
+  roles: RoleTyle[];
 }
 
 const menuItems: MenuItem[] = [
@@ -17,6 +18,13 @@ const menuItems: MenuItem[] = [
     path: "/",
     roles: ["user", "vendor", "admin"],
   },
+  {
+    label: "Redeem",
+    icon: "pi pi-users",
+    path: "/redeem",
+    roles: ["vendor"],
+  },
+
   {
     label: "Points Earn",
     icon: "pi pi-users",
@@ -58,6 +66,12 @@ const menuItems: MenuItem[] = [
     icon: "pi pi-ticket",
     path: "/coupons",
     roles: ["user"],
+  },
+  {
+    label: "Return",
+    icon: "pi pi-users",
+    path: "/return",
+    roles: ["vendor"],
   },
 ];
 

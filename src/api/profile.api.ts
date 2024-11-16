@@ -1,6 +1,6 @@
 import { ApiResponse } from "@/types/api.types";
-import api from "./axios.config";
-import { User } from "@/types/auth.types";
+import api from "./axios.config"; 
+import { User } from "@/types/user.types";
 
 export const profileApi = {
   getProfile: async () => {
